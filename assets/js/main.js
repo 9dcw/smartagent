@@ -9,11 +9,116 @@
 // https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
 // https://codepen.io/joezimjs/pen/yPWQbd?editors=1000
 
+
+  function addDocument () {
+    // count the child nodes
+    parent = document.getElementById("document-uploader")
+    const thisID = document.getElementById("document-uploader").childElementCount + 1;
+    console.log('prior count' + thisID.toString())
+    // create fieldset
+    fieldSet = document.createElement('fieldset')
+    fieldSet.id = 'fieldSet_' + thisID.toString()
+    fieldSet.setAttribute('class',"upload_dropZone text-center mb-3 p-4")
+
+    // create legend
+    legend = document.createElement('fieldset')
+    legend.setAttribute('class',"visually-hidden")
+    legend.innerHTML = 'Document Uploader'
+    fieldSet.appendChild(legend)
+
+    // create svg
+
+    svg = document.createElement('svg')
+    svg.setAttribute('class',"upload_svg")
+    svg.setAttribute('width',"60")
+    svg.setAttribute('height',"60")
+    svg.setAttribute('aria-hidden',"true")
+
+    // create use
+    useEl = document.createElement('use')
+    useEl.setAttribute('href', '#icon-imageUpload')
+
+    svg.appendChild(useEl)
+    fieldSet.appendChild(svg)
+
+    // create div drag and drop
+    dnd = document.createElement('div')
+    dnd.setAttribute('class',"small my-2")
+    dnd.innerHTML = 'Drag &amp; Drop document inside dashed region<br><i>or</i>'
+
+    fieldSet.appendChild(dnd)
+
+    // create input
+    uploadinput = document.createElement('input')
+    uploadinput.id = 'upload_document_' + thisID.toString()
+    uploadinput.setAttribute('data-post-name', "image_logo")
+    uploadinput.setAttribute('data-post-url', "https://someplace.com/image/uploads/logos/")
+    uploadinput.setAttribute('class', "position-absolute invisible")
+    uploadinput.setAttribute('type', "file")
+    uploadinput.setAttribute('accept', "image/jpeg, image/png, image/svg+xml")
+    fieldSet.appendChild(uploadinput)
+    // create label
+    uploadLabel = uploadinput = document.createElement('label')
+    uploadLabel.setAttribute('class', "btn btn-upload mb-3")
+    uploadLabel.setAttribute('for', 'upload_document_' + thisID.toString())
+    uploadLabel.innerHTML = 'Choose file(s)'
+    fieldSet.appendChild(uploadLabel)
+
+    // create upload line
+    wrapper = document.createElement('div')
+    wrapper.setAttribute('class', "upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0")
+    fieldSet.appendChild(wrapper)
+
+    delbutt = document.createElement('button')
+    delbutt.id = 'delete_button_' + thisID.toString()
+    delbutt.setAttribute('class', "col-sm btn btn-secondary")
+    delbutt.type = 'button'
+    delbutt.setAttribute('onclick', "deleteDocument("+thisID.toString()+")")
+    delbutt.innerHTML = 'Delete Document'
+    fieldSet.appendChild(delbutt)
+
+    parent.appendChild(fieldSet)
+
+    /*
+    <fieldset class="upload_dropZone text-center mb-3 p-4">
+
+      <legend class="visually-hidden">Document Uploader</legend>
+
+      <svg class="upload_svg" width="60" height="60" aria-hidden="true">
+        <use href="#icon-imageUpload"></use>
+      </svg>
+
+      <div class="small my-2">Drag &amp; Drop document #2 inside dashed region<br><i>or</i></div>
+
+      <input id="upload_document_1" data-post-name="image_logo" data-post-url="https://someplace.com/image/uploads/logos/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+      <label class="btn btn-upload mb-3" for="upload_image_logo">Choose file(s)</label>
+
+      <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
+      <button id="delete_button_1" type="button" class="col-sm btn btn-secondary" onclick="deleteButton(1)">Delete</button>
+
+    </fieldset>
+    */
+
+  }
+
+  function deleteDocument(thisID){
+    console.log(thisID)
+    // delete the element
+    thisEl = document.getElementById('fieldSet_' + thisID.toString())
+    thisEl.remove()
+    // check if it's document #1
+    // then delete and recreate
+    if (thisID.toString() === '1') {
+      addDocument()
+    }
+  }
+
 (function() {
   "use strict";
 
   // Four objects of interest: drop zones, input elements, gallery elements, and the files.
   // dataRefs = {files: [image files], input: element ref, gallery: element ref}
+
 
   const preventDefaults = event => {
     event.preventDefault();
@@ -401,5 +506,6 @@
       mirror: false
     });
   });
+
 
 })()

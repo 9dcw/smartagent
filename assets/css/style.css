@@ -18,6 +18,7 @@
   --colorPrimaryOutline: #dff5f7;
   --colorButtonNormal: #47b2e4;
   --colorButtonHover: #37517e;
+  --colorGrey: #6E757C;
   --colorLinkNormal: #00979f;
   --colorLinkHover: #00cdd7;
 }
@@ -103,7 +104,7 @@ h6 {
 --------------------------------------------------------------*/
 
 .upload_dropZone {
-  color: #0f3c4b;
+  color: var(--colorPrimaryNormal, #37517e);
   background-color: var(--colorPrimaryPale, #c8dadf);
   outline: 2px dashed var(--colorPrimaryNormal, #0576bd);
   outline-offset: -12px;
@@ -112,9 +113,12 @@ h6 {
     outline-color 0.3s ease-in-out,
     background-color 0.2s ease-out;
 }
+.upload_dropZone p {
+  color: #0000;
+}
 .upload_dropZone.highlight {
   outline-offset: -4px;
-  outline-color: var(--colorPrimaryNormal, #0576bd);
+  outline-color: var(--colorPrimaryNormal, #37517e);
   background-color: var(--colorPrimaryEighth, #c8dadf);
 }
 .upload_svg {
@@ -137,11 +141,27 @@ h6 {
 .btn-primary {
   color: #fff;
   background: #47b2e4;
+  border-color: #47b2e4;
 }
 
 .btn-primary:hover {
-  background: #209dd8;
+  background: #fff;
+  color: var(--colorPrimaryNormal);
+  border-color: var(--colorPrimaryNormal);
 }
+
+.btn-secondary {
+  color: #fff;
+  background: #6E757C;
+  border-color: #6E757C;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: var(--colorPrimaryGrey);
+  border-color: var(--colorPrimaryGrey);
+}
+
+
 
 /*--------------------------------------------------------------
 # Back to top button

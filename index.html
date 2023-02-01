@@ -352,49 +352,33 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Document Dropper</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="document-uploader">
 
-            <fieldset class="upload_dropZone text-center mb-3 p-4">
+            <fieldset id="fieldSet_1" class="upload_dropZone text-center mb-3 p-4">
 
-              <legend class="visually-hidden">Image uploader</legend>
+              <legend class="visually-hidden">Document uploader</legend>
 
               <svg class="upload_svg" width="60" height="60" aria-hidden="true">
                 <use href="#icon-imageUpload"></use>
               </svg>
 
-              <p class="small my-2">Drag &amp; Drop background image(s) inside dashed region<br><i>or</i></p>
+              <div class="small my-2">Drag &amp; Drop document inside dashed region<br><i>or</i></div>
 
-              <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
+              <input id="upload_document_1" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
 
               <label class="btn btn-upload mb-3" for="upload_image_background">Choose file(s)</label>
 
               <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
+              <button id="delete_button_1" type="button" class="col-sm btn btn-secondary" onclick="deleteDocument(1)">Delete</button>
 
             </fieldset>
 
 
 
-            <fieldset class="upload_dropZone text-center mb-3 p-4">
-
-              <legend class="visually-hidden">Image uploader</legend>
-
-              <svg class="upload_svg" width="60" height="60" aria-hidden="true">
-                <use href="#icon-imageUpload"></use>
-              </svg>
-
-              <p class="small my-2">Drag &amp; Drop logo image(s) inside dashed region<br><i>or</i></p>
-
-              <input id="upload_image_logo" data-post-name="image_logo" data-post-url="https://someplace.com/image/uploads/logos/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-
-              <label class="btn btn-upload mb-3" for="upload_image_logo">Choose file(s)</label>
-
-              <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
-
-            </fieldset>
 
           </form>
 
@@ -409,8 +393,9 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="col-sm btn btn-primary" onclick="addDocument()">Add</button>
+            <button type="button" class="col-sm btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="col-sm btn btn-primary">Submit</button>
           </div>
         </div>
       </div>
