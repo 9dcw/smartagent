@@ -10,7 +10,7 @@
 // https://codepen.io/joezimjs/pen/yPWQbd?editors=1000
 
 
-  function addDocument () {
+  function addDocumentx () {
     // count the child nodes
     parent = document.getElementById("document-uploader")
     const thisID = document.getElementById("document-uploader").childElementCount + 1;
@@ -52,7 +52,7 @@
     uploadinput = document.createElement('input')
     uploadinput.id = 'upload_document_' + thisID.toString()
     uploadinput.setAttribute('data-post-name', "image_logo")
-    uploadinput.setAttribute('data-post-url', "https://someplace.com/image/uploads/logos/")
+    uploadinput.setAttribute('data-post-url', "https://harvesting.ninja/smart_agent_file_drop")
     uploadinput.setAttribute('class', "position-absolute invisible")
     uploadinput.setAttribute('type', "file")
     uploadinput.setAttribute('accept', "image/jpeg, image/png, image/svg+xml")
@@ -213,7 +213,7 @@
 
     const url = dataRefs.input.getAttribute('data-post-url');
     if (!url) return;
-
+    console.log(url)
     const name = dataRefs.input.getAttribute('data-post-name');
     if (!name) return;
 
