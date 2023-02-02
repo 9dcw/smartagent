@@ -52,7 +52,7 @@
     uploadinput = document.createElement('input')
     uploadinput.id = 'upload_document_' + thisID.toString()
     uploadinput.setAttribute('data-post-name', "image_logo")
-    uploadinput.setAttribute('data-post-url', "https://harvesting.ninja/smart_agent_file_drop")
+    //uploadinput.setAttribute('data-post-url', "https://harvesting.ninja/smart_agent_file_drop")
     uploadinput.setAttribute('class', "position-absolute invisible")
     uploadinput.setAttribute('type', "file")
     uploadinput.setAttribute('accept', "image/jpeg, image/png, image/svg+xml")
