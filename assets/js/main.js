@@ -123,6 +123,7 @@
   const preventDefaults = event => {
     event.preventDefault();
     event.stopPropagation();
+
   };
 
   const highlight = event =>
@@ -140,6 +141,7 @@
 
   const handleDrop = event => {
     const dataRefs = getInputAndGalleryRefs(event.target);
+    console.log('handle drop: ' + dataRefs.input.getAttribute('data-post-url'))
     dataRefs.files = event.dataTransfer.files;
     handleFiles(dataRefs);
   }
@@ -230,7 +232,7 @@
       if (data.success === true) {
         previewFiles(dataRefs);
       } else {
-        console.log('URL: ', url, '  name: ', name)
+        console.log('URL: '+ url + '  name: ' + name)
       }
     })
     .catch(error => {
