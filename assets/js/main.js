@@ -220,7 +220,7 @@
     if (!name) return;
 
     const formData = new FormData();
-    formData.append(name, dataRefs.files);
+    //formData.append(name, dataRefs.files);
 
     fetch(url, {
       method: 'POST',
@@ -236,7 +236,7 @@
       }
     })
     .catch(error => {
-      
+
       console.log(error);
     });
   }
