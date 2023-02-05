@@ -236,7 +236,8 @@
       }
     })
     .catch(error => {
-      console.error('errored: '+ error);
+      
+      console.log(error);
     });
   }
 
